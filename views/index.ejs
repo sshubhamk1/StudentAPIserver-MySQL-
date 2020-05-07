@@ -1,0 +1,49 @@
+<%- include('partials/header') -%>
+
+<div class="container mt-5">
+    <%- include('partials/messages') -%>
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Roll Number</th>
+                <th>Registration Number</th>
+                <th>Mobile Number</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Roll Number</th>
+                <th>Registration Number</th>
+                <th>Mobile Number</th>
+                <th>Address</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <% students.forEach((student)=> { %>
+                    <tr>
+                        <td><%= student.name %></td>
+                        <td><%= student.class %></td>
+                        <td><%= student.roll_num %></td>
+                        <td><%= student.reg_num %></td>
+                        <td><%= student.mob_num %></td>
+                        <td><%= student.address %></td>
+                        <td>
+                            <a class="btn btn-primary" href="/edit/<%=student.reg_num %>">Edit</a>
+                            <form style="display: inline;" action="/delete/<%=student.reg_num %>?_method=DELETE" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+               <% }) %>
+                
+
+            </tbody>
+        </table>
+    </div>
+<%- include('partials/footer') -%>

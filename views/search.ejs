@@ -1,0 +1,55 @@
+<%- include('partials/header') -%>
+
+<div class="container mt-5 w-50">
+
+    <h2 class="mb-4">Search Student</h2>
+
+    <form action="/student" method="GET">
+        <input type="text" name="name" class="form-control" placeholder="Student Name">
+
+        <button type="submit" class="btn btn-danger btn-block mt-3">Search in Database</button>
+
+    </form>
+
+    <% if(students && students.length!=0) {  %>
+        <h4 class="text-danger my-4">Search Results: </h4>
+        <table class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Roll Number</th>
+                    <th>Registration Number</th>
+                    <th>Mobile Number</th>
+                    <th>Address</th>
+                </tr>
+            </thead>  
+        
+        
+        <% students.forEach((student) => { %>
+      
+    
+            <tbody>
+                <tr>
+                    <td><%= student.name %></td>
+                    <td><%= student.class %></td>
+                    <td><%= student.roll_num %></td>
+                    <td><%= student.reg_num %></td>
+                    <td><%= student.mob_num %></td>
+                    <td><%= student.address %></td>
+                </tr>
+    
+            </tbody>
+            <%  } );%>
+            
+        </table>
+
+ <% } else if (typeof(students) =='object') { %>
+
+    <div class="alert alert-danger mt-4">Student does not exist with this name.</div>
+
+    <% } %>
+
+</div>
+
+<%- include('partials/footer') -%>

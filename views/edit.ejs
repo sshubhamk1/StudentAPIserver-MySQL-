@@ -1,0 +1,27 @@
+<%- include('partials/header') -%>
+
+<div class="container mt-5 w-50">
+
+    <h2 class="mb-4">Update Student Data</h2>
+
+    <form action="/edit/<%= student.reg_num %>?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        
+        <input type="text" value="<%= student.name %>" name="name" class="form-control" placeholder="Student Name">
+
+        <input type="text" value="<%= student.class %>" name="class" class="form-control" placeholder="Student Class">
+
+        <input type="text" value="<%= student.roll_num %>" name="roll_num" class="form-control" placeholder="Student Roll Number">
+
+        <input type="text" value="<%= student.reg_num %>" name="reg_num" class="form-control" placeholder="Student Registration Number">
+
+        <input type="text" value="<%= student.mob_num %>" name="mob_num" class="form-control" placeholder="Student Mobile Number">
+
+        <input type="text" value="<%= student.address %>" name="address" class="form-control" placeholder="Student Home Address">
+
+        <button type="submit" class="btn btn-danger btn-block mt-3">Update Student</button>
+
+    </form>
+</div>
+
+<%- include('partials/footer') -%>

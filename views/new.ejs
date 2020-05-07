@@ -1,0 +1,23 @@
+<%- include('partials/header') -%>
+<div class="container mt-5 w-50">
+
+    <h2 class="mb-4">Add New Student</h2>
+
+    <form action="/student/new" method="POST">
+        <input type="text" name="name" class="form-control" placeholder="Student Name">
+
+        <input type="text" name="class" class="form-control" placeholder="Student Class">
+
+        <input type="text" name="roll_num" class="form-control" placeholder="Student Roll Number">
+
+        <input type="text" name="reg_num" class="form-control" placeholder="Student Registration Number">
+
+        <input type="text" name="mob_num" class="form-control" placeholder="Student Mobile Number">
+
+        <input type="text" name="address" class="form-control" placeholder="Student Home Address">
+
+        <button type="submit" class="btn btn-danger btn-block mt-3">Add to Database</button>
+
+    </form>
+</div>
+<%- include('partials/footer') -%>
